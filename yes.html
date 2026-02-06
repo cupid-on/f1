@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>გმადლობ! 💕</title>
+<link rel="stylesheet" href="index.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<style>
+    .celebration-message {
+        text-align: center;
+        padding: 2rem;
+    }
+    
+    .celebration-title {
+        font-size: clamp(2rem, 6vw, 4rem);
+        margin-bottom: 1.5rem;
+        animation: heartbeat 1.5s ease-in-out infinite;
+    }
+    
+    .celebration-text {
+        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        line-height: 1.6;
+        margin: 1rem 0;
+    }
+    
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        25% { transform: scale(1.1); }
+        50% { transform: scale(1); }
+    }
+    
+    .back-btn {
+        margin-top: 2rem;
+        padding: 1rem 2.5rem;
+        background: linear-gradient(135deg, var(--burgundy-main), var(--wine-deep));
+        color: var(--blush-light);
+        border: 3px solid var(--blush-light);
+        border-radius: 50px;
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    
+    .back-btn:hover {
+        transform: scale(1.05);
+    }
+</style>
+</head>
+<body>
+<!-- Floating hearts background -->
+<div class="hearts-container" aria-hidden="true">
+<div class="heart"></div>
+<div class="heart"></div>
+<div class="heart"></div>
+</div>
+
+<!-- Main content -->
+<div class="container">
+<div class="content-wrapper">
+<div class="celebration-message">
+<h1 class="celebration-title">მენატრებოდი 💕</h1>
+<p class="celebration-text">
+მაპატიე რომ შევცდი
+</p>
+<p class="celebration-text">
+და მადლობა, რომ ისევ მენდობი 🥹✨
+</p>
+<button class="back-btn" onclick="window.location.href='index.html'">
+დაბრუნება
+</button>
+</div>
+</div>
+</div>
+
+<!-- Rose petals overlay -->
+<div class="petals-container" aria-hidden="true">
+<div class="petal"></div>
+<div class="petal"></div>
+</div>
+
+<script>
+// Create continuous heart burst
+function createHeartBurst() {
+    const heart = document.createElement('div');
+    heart.className = 'burst-heart';
+    heart.textContent = '💕';
+    heart.style.cssText = `
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        --angle: ${Math.random() * 360}deg;
+        --distance: ${100 + Math.random() * 100}px;
+    `;
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 1000);
+}
+
+// Burst hearts periodically
+setInterval(createHeartBurst, 300);
+
+// Initial burst
+for (let i = 0; i < 15; i++) {
+    setTimeout(createHeartBurst, i * 100);
+}
+</script>
+</body>
+</html>
